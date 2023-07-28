@@ -1,0 +1,143 @@
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Portfolio Details</h2>
+        <ol>
+          <li><a href="#portfolio">Home</a></li>
+          <li>Game of Life</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper">
+            <div
+              id="carouselExampleInterval"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                  <img
+                    src="../../../../assets/images/pyGameOfLife/Captura1.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <img
+                    src="../../../../assets/images/pyGameOfLife/Captura2.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="../../../../assets/images/pyGameOfLife/Captura3.png"
+                    class="d-block w-100"
+                    alt="..."
+                  />
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="portfolio-description">
+            <h2>Details</h2>
+            <p style="text-align: justify">
+              El "Game of Life", creado por John Conway en 1970, es un famoso
+              juego matemático y de simulación que se desarrolla en una
+              cuadrícula bidimensional de celdas. El juego sigue reglas simples
+              pero da lugar a patrones sorprendentes y complejos a medida que
+              evoluciona. En este proyecto, implementaremos una versión del
+              "Game of Life" utilizando el lenguaje de programación Python.
+            </p>
+            <h5>Características principales:</h5>
+            <ul style="text-align: justify">
+              <strong style="color: #3590d5; text-align: justify">1.</strong>
+              En primer lugar, crearemos una cuadrícula bidimensional que
+              representará nuestro mundo. Cada celda en la cuadrícula puede
+              estar en uno de dos estados posibles: viva o muerta. Utilizaremos
+              listas anidadas o arreglos bidimensionales para representar esta
+              cuadrícula, y asignaremos un valor binario (0 o 1) a cada celda
+              para indicar su estado.
+            </ul>
+            <ul style="text-align: justify">
+              <strong style="color: #3590d5; text-align: justify">2.</strong>
+              Utilizando bucles y condiciones, implementaremos las reglas del
+              juego para calcular el estado futuro de cada celda en la
+              cuadrícula. Crearemos funciones que contarán las celdas vecinas
+              vivas para cada celda y aplicarán las reglas para actualizar el
+              estado de todas las celdas en la siguiente generación.
+            </ul>
+            <ul style="text-align: justify">
+              <strong style="color: #3590d5; text-align: justify">3.</strong>
+              Creación de rutas y controladores: Se definirán las rutas de la
+              API web utilizando Express.js y se crearán los controladores para
+              gestionar las solicitudes entrantes y salientes de WhatsApp.
+            </ul>
+            <ul style="text-align: justify">
+              <strong style="color: #3590d5; text-align: justify">4.</strong
+              >Interfaz gráfica: Utilización de bibliotecas gráficas Pygame para
+              crear una interfaz de usuario simple. Esto permitirá que el
+              usuario vea cómo evoluciona el mundo y cómo evoluciona el mundo y
+              cómo cambian los patrones con cada generacion.
+            </ul>
+            <ul style="text-align: justify">
+              <strong style="color: #3590d5; text-align: justify">4.</strong
+              >Una vez completada la implementación, podremos ejecutar el
+              programa y ver cómo el "Game of Life" se desarrolla a través de
+              las generaciones. Observaremos cómo los patrones emergen y
+              cambian, y cómo algunos patrones pueden ser estables, mientras que
+              otros pueden desaparecer o evolucionar indefinidamente.
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="portfolio-info">
+            <h3>Project information</h3>
+            <ul>
+              <li><strong>Category</strong>: Game</li>
+              <li><strong>Client</strong>: Simulation</li>
+              <li><strong>Project date</strong>: December, 2022</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio Details Section -->
+</main>
+<!-- End #main -->
