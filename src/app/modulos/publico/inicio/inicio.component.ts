@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import Typed from 'typed.js';
 import { ToastrService } from 'ngx-toastr';
 import { mostrarMensaje } from 'src/app/utilidades/mensajes/toast.func';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 
 import { CargarScriptsService } from 'src/app/cargar-scripts.service';
@@ -15,7 +14,6 @@ declare var Waypoint: any;
   styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent implements OnInit, AfterViewInit {
-  form: FormGroup = this.fb.group({});
   formData = {
     from_name: '',
     to_name: 'Juan Pablo',
@@ -26,9 +24,7 @@ export class InicioComponent implements OnInit, AfterViewInit {
   constructor(
     private _CargaScripts: CargarScriptsService,
     private elementRef: ElementRef,
-    private http: HttpClient,
-    public toastr: ToastrService,
-    private fb: FormBuilder
+    public toastr: ToastrService
   ) {
     _CargaScripts.Carga(['main']);
   }
