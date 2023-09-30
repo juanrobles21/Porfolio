@@ -3,7 +3,9 @@ import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import Typed from 'typed.js';
 import { ToastrService } from 'ngx-toastr';
 import { mostrarMensaje } from 'src/app/utilidades/mensajes/toast.func';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import emailjs from '@emailjs/browser';
+
 import { CargarScriptsService } from 'src/app/cargar-scripts.service';
 declare var Waypoint: any;
 
@@ -13,19 +15,22 @@ declare var Waypoint: any;
   styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent implements OnInit, AfterViewInit {
+  form: FormGroup = this.fb.group({});
   formData = {
-    name: '',
-    email: '',
+    from_name: '',
+    to_name: 'Juan Pablo',
+    form_email: '',
     subject: '',
     message: '',
   };
   constructor(
-    private _CargaScripts:CargarScriptsService,
+    private _CargaScripts: CargarScriptsService,
     private elementRef: ElementRef,
     private http: HttpClient,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    private fb: FormBuilder
   ) {
-    _CargaScripts.Carga(["main"])
+    _CargaScripts.Carga(['main']);
   }
   ngOnInit() {
     const options = {
@@ -110,25 +115,29 @@ export class InicioComponent implements OnInit, AfterViewInit {
       mainElement.scrollIntoView({ behavior: 'smooth' });
     }
   }
-  sendForm(formulario: NgForm) {
-    this.http
-      .post('https://formsubmit.co/jroblesarias07@gmail.com', this.formData)
-      .subscribe(
-        (response) => {
-          mostrarMensaje(
-            'success',
-            'Mensaje enviado con éxito',
-            'Correcto',
-            this.toastr
-          );
-          formulario.resetForm();
-          return response;
-        },
-        (error) => {
-          //mostrarMensaje('error', 'Correo inválido', 'Error',this.toastr);
-          formulario.resetForm();
-        }
-      );
-  }
 
+  async send(formulario: NgForm) {
+    emailjs.init('DeBau_lVq3cnKHsUc');
+    try {
+      const response = await emailjs.send(
+        'service_fm34zg1',
+        'template_dc4b1qc',
+        this.formData
+      );
+
+      if (response && response.status === 200) {
+        mostrarMensaje(
+          'success',
+          'Mensaje enviado con éxito',
+          'Correcto',
+          this.toastr
+        );
+        formulario.resetForm();
+      } else {
+        mostrarMensaje('error', 'Correo inválido', 'Error', this.toastr);
+      }
+    } catch (error) {
+      mostrarMensaje('error', 'Correo inválido', 'Error', this.toastr);
+    }
+  }
 }
